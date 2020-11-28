@@ -1,10 +1,19 @@
 #include <stdio.h>
 
-void strCopy(char* source, char* destination) {
+void strCopy(char source, char destination) {
     for ( ; *source != '\0'; source++, destination++ ) {
         *destination = *source;
     }
     *destination = '\0';
+}
+
+void strCopyIndex(char source[], char destination[]) {
+    int i = 0;
+    
+    for ( ; source[i] != '\0'; i++ ) {
+        destination[i] = source[i];
+    }
+    destination[i] = '\0';
 }
 
 void strUpper(char* str) {
