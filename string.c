@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void strCopy(char source, char destination) {
+void strCopy(char* source, char* destination) {
     for ( ; *source != '\0'; source++, destination++ ) {
         *destination = *source;
     }
@@ -16,7 +16,7 @@ void strCopyIndex(char source[], char destination[]) {
     destination[i] = '\0';
 }
 
-void strUpper(char* str) {
+void strUpper(char str[]) {
     int offset = 'a' - 'A';
 
     for ( ; *str != '\0'; str++ ) {
