@@ -17,7 +17,9 @@ int vectorEqual(Vector a, Vector b) {
 
 Vector vectorSum(Vector a, Vector b) {
     Vector sum = a;
+
     vectorIncrement(&sum, b);
+    
     return sum;
 }
 
