@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef struct {
     char name[10];
@@ -6,9 +7,11 @@ typedef struct {
     int age;
 } Person;
 
-// struct Person2 {
-//     char *name; 
-// };
+typedef struct {
+    char *name;
+    int id;
+    int id2;
+} Person2;
 
 void describePerson(Person *person) {
     // operator -> for struct pointer
@@ -51,19 +54,35 @@ Person createPerson(char name[], char gender, int age) {
 
 
 int main() {
-    Person john = {"John", 'm', 21};
-    Person jane = {"Jane", 'f', 18};
-    Person mike = createPerson("Mike", 'm', 30);
+    Person2 p = {(char*) malloc(20 * sizeof(char)), 1, 2};
+    Person2 p2 = {(char*) malloc(50 * sizeof(char)), 2, 2};
 
-    describePerson(&john);
-    describePerson(&jane);
-    describePersonCopy(mike);
+    changeName(p.name, "1234567890123456789");
+    changeName(p2.name, "12345678901234567891234567890123456789123456789");
 
-    changePersonName(&john, "Jack");
-    changeName(jane.name, "Mary");
+    printf("%lu\n", sizeof(p));
+    printf("%lu\n", sizeof(p2));
 
-    describePerson(&john);
-    describePerson(&jane);
+    printf("%s\n", p.name);
+    printf("%s\n", p2.name);
+
+    free(p.name);
+    free(p2.name);
+
+
+    // Person john = {"John", 'm', 21};
+    // Person jane = {"Jane", 'f', 18};
+    // Person mike = createPerson("Mike", 'm', 30);
+
+    // describePerson(&john);
+    // describePerson(&jane);
+    // describePersonCopy(mike);
+
+    // changePersonName(&john, "Jack");
+    // changeName(jane.name, "Mary");
+
+    // describePerson(&john);
+    // describePerson(&jane);
 
     return 0;
 }
